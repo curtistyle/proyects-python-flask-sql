@@ -24,3 +24,5 @@ ext/mkinstalldirs
 ext/run-tests.php
 ext/.deps
 ext/libtool
+first-app-web-contacts/env
+python-flask-postgresql-rest-api/venv
