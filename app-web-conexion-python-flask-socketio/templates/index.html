@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-Chat!</title>
+</head>
+<body>
+    <h1>Bienvenidos!</h1>
+
+    <ul id="messages"></ul>
+    <input type="text" id="myMessage">
+    <button onclick="getData()" type="button">Send</button>
+
+    <!-- socketio -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        // socket.emit('message', 'hello');
+        
+        socket.on('message', function (msg){
+            setData(msg)
+        });
+
+        function setData(msg) {
+            // Crear la etiqueta
+            var newTag = document.createElement("p");
+            
+            // Agregar contenido a la etiqueta
+            var tagText = document.createTextNode(msg);
+            newTag.appendChild(tagText);
+            
+            // Agregar la etiqueta al documento
+            var parentDiv = document.getElementById("messages");
+            parentDiv.appendChild(newTag);
+        }; 
+
+        function getData() {
+            // Obtener el valor del imput
+            var inputvalue = document.getElementById("myMessage").value;
+            // Mostra el valor en consola
+            socket.send(inputvalue);    
+            document.getElementById("myMessage").value = "";
+        };
+    </script>
+</body>
+</html>
