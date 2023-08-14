@@ -29,3 +29,4 @@ python-flask-postgresql-rest-api/venv
 app-web-conexion-python-flask-socketio/env
 python-flask-login-mysql/env
 python-flask-mysql-tasks-login/env
+test-web-add-person-in-db/env

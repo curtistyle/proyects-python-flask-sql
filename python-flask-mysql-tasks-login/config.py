@@ -6,4 +6,3 @@ class Config():
     MYSQL_PASSWORD = 'admin'
     MYSQL_DB = 'flask_login'
     SECRET_KEY = 'secretkey'
-        
