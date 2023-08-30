@@ -6,5 +6,7 @@ def input_band():
     print(name)
     
 def output_band(band):
-    
+    pass
+
+
 
