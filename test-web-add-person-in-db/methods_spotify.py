@@ -9,7 +9,6 @@ client_secret = "dccf369fdec34a9f8de258890cae5b30"
 auth_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
 sp = spotipy.Spotify(auth_manager=auth_manager)
 
-
 list_albums = []
 
 def search_albums_for_artist(title_artist):
@@ -34,7 +33,6 @@ def search_albums_for_artist(title_artist):
             album_year = album['release_date']
             album_img = album['images'][0]['url']
             
-            print(">>>")
             track_list = []
             for track in tracks_items["items"]:
                 track_list.append(track['name'])
@@ -45,9 +43,10 @@ def search_albums_for_artist(title_artist):
             pos += 1
     else:
         print(f"No se encontró el artista '{title_artist}'.")
-    
+    print(list_albums)
     return list_albums
     
+
     
     
 
