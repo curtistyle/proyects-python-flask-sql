@@ -4,6 +4,7 @@ from cfg import Config_db
 from jinja2 import *
 from methods_spotify import search_albums_for_artist
 
+
 app = Flask(__name__)
 
 db = MySQL(app)
