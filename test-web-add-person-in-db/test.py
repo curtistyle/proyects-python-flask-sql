@@ -1,5 +1,6 @@
 # import spotipy
 # from spotipy.oauth2 import SpotifyClientCredentials
+# from msvcrt import getwch
 
 # # Credenciales de la aplicación
 # client_id = "aad4ffcc488644c8ac36c765382751be"
@@ -21,54 +22,66 @@
         
 #         # Obtener los álbumes del artista
 #         albums = sp.artist_albums(artist_id, album_type="album")
-
+        
 #         for album in albums["items"]:
-#             list_albums.append({'name':album["name"]})
-            
-#         print(list_albums)
+#             tracks_items = sp.album_tracks(album['id'])
+#             # list_albums.append({'name':album["name"]})
+#             print(">>>",album['name'])
+#             print()
+#             for track in tracks_items["items"]:
+#                 getwch()
+#                 print(track)
+#             print()
+        
 #     else:
 #         print(f"No se encontró el artista '{artist}'.")
         
+        
+        
+# search_albums("The Offspring")       
 
-from band import Album, Artist, Track
+# from band import Album, Artist, Track
 
-band = Artist('The Offspring')
-disco = Album('All I Want', 3, 1997)
+# band = Artist('The Offspring')
+# disco = Album('All I Want', 3, 1997)
 
-pista1 = Track('All I Want', '1::55', 1)
-pista2 = Track('Way Down The Line', '2:37', 2)
-pista3 = Track('Smash It Up', '3:25', 3)
+# pista1 = Track('All I Want', '1::55', 1)
+# pista2 = Track('Way Down The Line', '2:37', 2)
+# pista3 = Track('Smash It Up', '3:25', 3)
 
-pista1.Title
+# pista1.Title
 
-pista1.Artist = band
-pista2.Artist = band
-pista3.Artist = band
-
-
-
-disco.addTrack(pista1)
-disco.addTrack(pista2)
-disco.addTrack(pista3)
+# pista1.Artist = band
+# pista2.Artist = band
+# pista3.Artist = band
 
 
 
-band.Albums = disco
-
-disco.Track_List[0].Title
-
-
-# nuevo_valor = int(input("Ingrese un artista: "))
+# disco.addTrack(pista1)
+# disco.addTrack(pista2)
+# disco.addTrack(pista3)
 
 
 
-try:
-    pista1.Title = 2
-except ValueError as e:
-    print("Error!, ", e)
-print(band)
+# band.Albums = disco
 
-print(f"{type('s')} - {type(str())}")
+# disco.Track_List[0].Title
+
+
+# # nuevo_valor = int(input("Ingrese un artista: "))
+
+
+
+# try:
+#     pista1.Title = 2
+# except ValueError as e:
+#     print("Error!, ", e)
+# print(band)
+
+# print(f"{type('s')} - {type(str())}")
+
+
+# ! -------------------------------
 
 # from src.artist import Artist
 # from src.album import Album
@@ -111,6 +124,30 @@ print(f"{type('s')} - {type(str())}")
 
 # disco.Track_List.append(pista)
 
+dic_list = []
+
+lista = ['Conspiracy Of One ¯ Want You Bad', 'Conspiracy Of One ¯ Million Miles Away', 'Conspiracy Of One ¯ Dammit, I Changed Again']
+
+def generate_dic(items : list):
+    for item in items:
+        words = item.split('¯')
+        dic_list.append({'artist': words[0],'album': words[1], 'track' : words[2], 'time' : words[3]})
+
+generate_dic(lista)
+
+print(dic_list)
+from datetime import datetime
 
 
 
+tiempo = 132000 / (1000 * 60)
+
+def convertir_milisegundos_a_minutos_segundos(milisegundos):
+    segundos, milisegundos = divmod(milisegundos, 1000)
+    minutos, segundos = divmod(segundos, 60)
+    return f'{minutos:02}:{segundos:02}'
+
+# Ejemplo de uso
+milisegundos = 132000
+formato_tiempo = convertir_milisegundos_a_minutos_segundos(milisegundos)
+print(formato_tiempo)

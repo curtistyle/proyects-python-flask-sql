@@ -11,6 +11,21 @@ sp = spotipy.Spotify(auth_manager=auth_manager)
 
 list_albums = []
 
+# def generate_dic(items : list):
+#     for item in items:
+#     pass
+def ms_to_minute(milisegundos):
+    segundos, milisegundos = divmod(milisegundos, 1000)
+    minutos, segundos = divmod(segundos, 60)
+    return f'{minutos:02}:{segundos:02}'
+
+def generate_dic(items : list):
+    dic_list = []
+    for item in items:
+        words = item.split('¯')
+        dic_list.append({'artist': words[0],'album': words[1], 'track' : words[2]})
+    return dic_list
+
 def search_albums_for_artist(title_artist):
     list_albums = []
     
@@ -20,8 +35,6 @@ def search_albums_for_artist(title_artist):
     if "artists" in results and "items" in results["artists"]:
         artist_item = results["artists"]["items"][0]
         artist_id = artist_item["id"]
-        
-        
         
         # Obtener los álbumes del artista
         albums = sp.artist_albums(artist_id, album_type="album")
@@ -35,15 +48,16 @@ def search_albums_for_artist(title_artist):
             
             track_list = []
             for track in tracks_items["items"]:
-                track_list.append(track['name'])
+                track_title = track['name']
+                track_time = ms_to_minute(track['duration_ms'])
                 
-            
-            #print('>>>',track_list)    
+                track_list.append({'title':track_title, 'time': track_time})
+                   
             list_albums.append({'title': album_title,'year':album_year, 'tracks':track_list,'property':acordion_property,'img':album_img})
             pos += 1
     else:
         print(f"No se encontró el artista '{title_artist}'.")
-    print(list_albums)
+    #print(list_albums)
     return list_albums
     
 

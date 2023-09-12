@@ -21,7 +21,7 @@ class Track():
         )
         
     def __eq__(self, other):
-        if other.__class__ is self.__class__
+        if other.__class__ is self.__class__:
             return (
                 self.__title,
                 self.__tme,
@@ -215,7 +215,7 @@ class Artist():
     """ Constructor """
     def __init__(self, name=''):
         self.__name : str = name
-        self.__albums : list
+        self.__albums : list = []
     
     def __repr__(self):
         return (
@@ -245,7 +245,7 @@ class Artist():
         self.__albums = value
         
     """ set Album object in list Albums """
-    def addAlbum(self, value : Album):
+    def addAlbum(self, value):
         self.__albums.append(value)
     
     
