@@ -22,7 +22,7 @@ def Lista():
     # print(">>>",seleccionados)
     # for select in seleccionados:
     #     print(f" '{select}'")
-    seleccionados= generate_dic(seleccionados)
+    seleccionados = generate_dic(seleccionados)
     print(seleccionados)
     return render_template('index.html')
 
@@ -33,6 +33,10 @@ def Search():
     get_name = request.args['name']
     response = search_albums_for_artist(get_name)
     return render_template('index.html', albums=response, artist=get_name)
+
+@app.route('/list')
+def List():
+    return render_template('list.html')
 
 if __name__=='__main__':
     app.config.from_object(Config_db)

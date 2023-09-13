@@ -26,6 +26,12 @@ def generate_dic(items : list):
         dic_list.append({'artist': words[0],'album': words[1], 'track' : words[2]})
     return dic_list
 
+def save_to_json(items : list):
+    from json import dump
+    with open("band.json", "w") as file:
+        dump(items, file)
+    
+
 def search_albums_for_artist(title_artist):
     list_albums = []
     
