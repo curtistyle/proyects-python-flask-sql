@@ -1,0 +1,20 @@
+{
+  "list_band": [
+    {
+      "id": null,
+      "name": "Lista 1",
+      "user": null,
+      "key": null,
+      "description": "asd",
+      "list_tracks": null
+    },
+    {
+      "id": null,
+      "name": "Lista 2",
+      "user": null,
+      "key": null,
+      "description": "asd",
+      "list_tracks": null
+    }
+  ]
+}

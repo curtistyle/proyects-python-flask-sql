@@ -1,4 +1,5 @@
 import spotipy
+import json
 from spotipy.oauth2 import SpotifyClientCredentials
 
 # Credenciales de la aplicación
@@ -26,11 +27,30 @@ def generate_dic(items : list):
         dic_list.append({'artist': words[0],'album': words[1], 'track' : words[2]})
     return dic_list
 
-def save_to_json(items : list):
-    from json import dump
-    with open("band.json", "w") as file:
-        dump(items, file)
+def create_json(path : str):
+    try:
+        file = open(path,'a')
+    except FileNotFoundError:
+        file = open(path,'w')
+    return file 
+
+def get_dict_in_json(path : str):
+    file = open(path, 'r')
+    with file as item:
+        data = json.load(item)
+    return data
+
+def set_dict_in_json(dictionary : dict):
+    data = get_dict_in_json('list_band.json')
+    data['list_band'].append(dictionary)
     
+    file = open('list_band.json','w')
+    with file as item:
+        json.dump(data,item)
+    file.close()
+
+
+# info = {'list_band' : lista}
 
 def search_albums_for_artist(title_artist):
     list_albums = []
