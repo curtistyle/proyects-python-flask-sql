@@ -20,11 +20,11 @@ def ms_to_minute(milisegundos):
     minutos, segundos = divmod(segundos, 60)
     return f'{minutos:02}:{segundos:02}'
 
-def generate_dic(items : list):
+def generate_dic(items : list, list_select =''):
     dic_list = []
     for item in items:
         words = item.split('¯')
-        dic_list.append({'artist': words[0],'album': words[1], 'track' : words[2]})
+        dic_list.append({'artist': words[0],'album': words[1], 'track' : words[2], 'list_select' : list_select})
     return dic_list
 
 def create_json(path : str):
@@ -49,6 +49,20 @@ def set_dict_in_json(dictionary : dict):
         json.dump(data,item)
     file.close()
 
+def test_set_dic(dictionary : dict):
+    """set list of band dict in json file"""
+    file = open('list_band.json','w')
+    with file as item:
+        json.dump(dictionary,item)
+    file.close()
+
+def get_pos(name : str):
+    data = get_dict_in_json('list_band.json')
+    for index in range(0,len(data['list_band'])):
+        if (data['list_band'][index]['name'] == name):
+            pos = index
+    return pos
+    
 
 # info = {'list_band' : lista}
 

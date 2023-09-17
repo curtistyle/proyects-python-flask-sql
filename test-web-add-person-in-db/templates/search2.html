@@ -26,42 +26,39 @@
                     <div id="{{album['property']}}" class="accordion-collapse collapse">
                         <div class="accordion-body">
                                 <!--  -->
-                                <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Diracion</th>
-                                        <th scope="col">Añadir</th>
-                                      </tr>
-                                    </thead>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Diracion</th>
+                                    <th scope="col">Añadir</th>
+                                    </tr>
+                                </thead>
                                     
-                                    <tbody>
-                                        {% for track in album['tracks'] %}
-                                      <tr>
-                                        <th scope="row">{{loop.index}}</th>
-                                        <td>{{ track['title'] }}</td>
-                                        <td>{{ track['time'] }}</td>
-                                        <td>
-                                            <div class="form-check">
-                                                
-                                                <input class="form-check-input" type="checkbox" name="lista" value="{{ artist }} ¯ {{ album['title'] }} ¯ {{track['title']}} ¯ {{track['time']}}" id="flexCheckDefault">
-                                            </div>
-                                        </td>
-                                      </tr>
-                                      {% endfor %} 
-                                    </tbody>
-                                  </table>           
+                                <tbody>
+                                    {% for track in album['tracks'] %}
+                                    <tr>
+                                    <th scope="row">{{loop.index}}</th>
+                                    <td>{{ track['title'] }}</td>
+                                    <td>{{ track['time'] }}</td>
+                                    <td>
+                                        <div class="form-check"> 
+                                            <!-- Canciones seleccionadas -->
+                                            <input class="form-check-input" type="checkbox" name="tracks_select" value="{{ artist }} ¯ {{ album['title'] }} ¯ {{track['title']}} ¯ {{track['time']}}" id="flexCheckDefault">
+                                        </div>
+                                    </td>
+                                    </tr>
+                                    {% endfor %} 
+                                </tbody>
+                            </table> 
                         </div>
                     </div>
-                </div>
-                {% endfor %}  
-            </div>  
+                {% endfor %}
+                </div>   
+            </div>
         </div>
-    </div>
-    <!--     
-    <button type="submit" class="btn btn-primary">Añadir</button>
-    -->
+    
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add</button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -72,23 +69,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">List</label>
                             <!-- Listas de bandas -->
                             <div class="dropdown">
                                 
-                                <select name="select" class="form-select" aria-label="Default select example">
-                                    <option selected>Lists og bands</option>
+                                <select name="camp_select" class="form-select" aria-label="Default select example">
+                                    <option selected>Lists of bands</option>
                                     {% if band_list %}
                                         {% for item in band_list["list_band"] %}
-                                            <option value="item['name']"> {{ item['name']}} </option>
+                                            <option value="{{item['name']}}"> {{ item['name']}} </option>
                                         {% endfor %}
                                     {% endif %}
                                 </select>           
 
                             </div>
                         </div>
+
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Message:</label>
                             <textarea class="form-control" id="message-text"></textarea>
@@ -99,7 +97,7 @@
                             <button type="submit" class="btn btn-primary">Send message</button>
                         </div>
                     
-                    </form>
+                    
                 </div>
                 
             </div>

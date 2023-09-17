@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block view_list %}
+<div class="accordion">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        {% for list in lists_band['list_band'] %}
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{loop.index}}" aria-expanded="false" aria-controls="flush-collapse{{loop.index}}">
+                    {{list['name']}} 
+                </button>
+            </h2>
+            <div id="flush-collapse{{loop.index}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    {% for track in list['list_tracks'] %}
+                        <p>{{track['artist']}} - {{track['album']}} - {{track['track']}}</p>
+                    {% endfor %}
+                </div>
+            </div> 
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+ 
+
+
+{% endblock  %}

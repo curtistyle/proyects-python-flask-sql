@@ -6,7 +6,26 @@
       "user": null,
       "key": null,
       "description": "asd",
-      "list_tracks": null
+      "list_tracks": [
+        {
+          "artist": "The Offspring ",
+          "album": " Let The Bad Times Roll (Deluxe Edition) ",
+          "track": " Let The Bad Times Roll ",
+          "list_select": "Lista 1"
+        },
+        {
+          "artist": "The Offspring ",
+          "album": " Let The Bad Times Roll (Deluxe Edition) ",
+          "track": " Behind Your Walls ",
+          "list_select": "Lista 1"
+        },
+        {
+          "artist": "The Offspring ",
+          "album": " Let The Bad Times Roll (Deluxe Edition) ",
+          "track": " Army Of One ",
+          "list_select": "Lista 1"
+        }
+      ]
     },
     {
       "id": null,
@@ -14,7 +33,7 @@
       "user": null,
       "key": null,
       "description": "asd",
-      "list_tracks": null
+      "list_tracks": []
     }
   ]
 }
