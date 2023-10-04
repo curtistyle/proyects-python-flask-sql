@@ -68,7 +68,7 @@ def get_pos(name : str):
 
 def search_albums_for_artist(title_artist):
     list_albums = []
-    
+    index= 0
     pos = 1
     # Buscar el artista
     results = sp.search(q=title_artist, type="artist", limit=1)
@@ -82,6 +82,7 @@ def search_albums_for_artist(title_artist):
         for album in albums["items"]:
             acordion_property = "panelsStayOpen-collapse" + str(pos)
             tracks_items = sp.album_tracks(album['id'])
+            
             album_title = album["name"]
             album_year = album['release_date']
             album_img = album['images'][0]['url']
@@ -90,6 +91,11 @@ def search_albums_for_artist(title_artist):
             for track in tracks_items["items"]:
                 track_title = track['name']
                 track_time = ms_to_minute(track['duration_ms'])
+                
+                if index == 0:
+                    print(">>>", track)
+                    print()
+                index += 1
                 
                 track_list.append({'title':track_title, 'time': track_time})
                    

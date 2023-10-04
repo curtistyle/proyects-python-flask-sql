@@ -1,5 +1,3 @@
-import flask
-
 class Artist():
     """ Constructor """
     def __init__(self, name=''):
@@ -29,9 +27,12 @@ class Album():
         self.__year       : int = year
         self.__img        : str = img        
     
+    def __len__(self):
+        return len(self.__title)
+    
     def __eq__(self, other):
         """ Define la igualdad entre dos Objetos. """
-        if other.__class__ is  self.__class__: 
+        if other.__class__ is self.__class__: 
             return (
                 self.__title,
                 self.__count,
@@ -86,6 +87,10 @@ class Album():
     def year(self):
         return self.__year
     
+    @property
+    def img(self):
+        return self.__img
+    
     @title.setter
     def title(self, value):
         self.__title = value
@@ -104,12 +109,15 @@ class Album():
         else:
             assert ValueError("No puede ser negativo.") # raise
     
+    @img.setter
+    def img(self, value):
+        self.__img = value
+    
 class Track():
-    def __init__(self, title='', number=0):
+    def __init__(self, title='', number=0, time=0):
         self.__title  : str = title
         self.__number : str = number 
-        self.__time   : str 
-        self.__link   : str 
+        self.__time   : str = time
 
     def __str__(self) -> str:
         return f"number='{self.__number}' title='{self.__title}' time='{self.__time}'"
@@ -119,7 +127,7 @@ class Track():
             f"{self.__class__.__name__} ( "
             f"name={self.__title!r}, "
             f"time={self.__time!r}, "
-            f"number={self.__number!r}, ) "
+            f"number={self.__number!r} ) "
             
         )
         
@@ -128,17 +136,18 @@ class Track():
             return (
                 self.__title,
                 self.__tme,
-                self.__number,
-                self.__link
+                self.__number
             ) == (
                 other.__title,
                 other.__time,
-                other.__number,
-                other.__link
+                other.__number
             )
         else:
             return NotImplemented
          
+    def __bool__(self):
+        return ((len(self.__title) > 0) and (self.__time > 0) and (self.__number > 0))
+        
     @property
     def title(self):
         """Get `Title` atribute from `Track` object."""
@@ -154,10 +163,6 @@ class Track():
         """Get `Number` atribute from `Truck` object."""
         return self.__number
     
-    @property
-    def link(self):
-        """Get `Link` atribute from `Track` object."""
-        return self.__link
     
     @title.setter
     def title(self, value):
@@ -176,10 +181,6 @@ class Track():
             self.__number = value
         else:
             raise ValueError("No puede ser negativo.")
-
-    @link.setter
-    def link(self, value):
-        self.__link = value
     
     def get_time_formatted(self):
         pass
@@ -187,8 +188,9 @@ class Track():
         
 
 if __name__=="__main__":
-    track = Track("She", 8)
+    track = Track("She", 3)
     
-    print(track.time)
+    print(repr(track))
+    print(str(track))
     
     

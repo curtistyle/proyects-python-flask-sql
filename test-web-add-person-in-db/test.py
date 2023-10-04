@@ -124,30 +124,43 @@
 
 # disco.Track_List.append(pista)
 
-dic_list = []
+# --------------------------------------------------------------------------------------------------------------
 
-lista = ['Conspiracy Of One ¯ Want You Bad', 'Conspiracy Of One ¯ Million Miles Away', 'Conspiracy Of One ¯ Dammit, I Changed Again']
+# dic_list = []
 
-def generate_dic(items : list):
-    for item in items:
-        words = item.split('¯')
-        dic_list.append({'artist': words[0],'album': words[1], 'track' : words[2], 'time' : words[3]})
+# lista = ['Conspiracy Of One ¯ Want You Bad', 'Conspiracy Of One ¯ Million Miles Away', 'Conspiracy Of One ¯ Dammit, I Changed Again']
 
-generate_dic(lista)
+# def generate_dic(items : list):
+#     for item in items:
+#         words = item.split('¯')
+#         dic_list.append({'artist': words[0],'album': words[1], 'track' : words[2], 'time' : words[3]})
 
-print(dic_list)
-from datetime import datetime
+# generate_dic(lista)
+
+# print(dic_list)
+# from datetime import datetime
 
 
 
-tiempo = 132000 / (1000 * 60)
+# tiempo = 132000 / (1000 * 60)
 
-def convertir_milisegundos_a_minutos_segundos(milisegundos):
-    segundos, milisegundos = divmod(milisegundos, 1000)
-    minutos, segundos = divmod(segundos, 60)
-    return f'{minutos:02}:{segundos:02}'
+# def convertir_milisegundos_a_minutos_segundos(milisegundos):
+#     segundos, milisegundos = divmod(milisegundos, 1000)
+#     minutos, segundos = divmod(segundos, 60)
+#     return f'{minutos:02}:{segundos:02}'
 
-# Ejemplo de uso
-milisegundos = 132000
-formato_tiempo = convertir_milisegundos_a_minutos_segundos(milisegundos)
-print(formato_tiempo)
+# # Ejemplo de uso
+# milisegundos = 132000
+# formato_tiempo = convertir_milisegundos_a_minutos_segundos(milisegundos)
+# print(formato_tiempo)
+
+# ------------------- ------------------------- -------------------- -------------------
+
+nombre = "s"
+apellido = "s"
+numero = 1
+
+def bolean():
+    return ((len(nombre) > 0) and (len(apellido) > 0) and (numero > 0))
+
+print(bolean())
