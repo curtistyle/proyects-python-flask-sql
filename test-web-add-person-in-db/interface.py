@@ -54,7 +54,7 @@ class Spotify():
                     pos += 1
             else:
                 print(f"No se encontró el artista '{name}'.")
-            #print(list_albums)
+            # ! garbage collector
             del artist, album, track
             return list_albums
     
