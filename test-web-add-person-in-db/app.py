@@ -32,6 +32,9 @@ def Lista():
     """ add list selected and tracks selected in dict `list_tracks`"""
     dict_list = generate_dic(tracks_selects, list_select)
     
+    print(tracks_selects)
+    print(list_select)
+    
     #data['list_band'][pos]['list_tracks'].append(dict_list)
     #data['list_band'][pos]['list_tracks'].append(tracks_selects)
     
@@ -54,14 +57,14 @@ def Create_List():
         name = request.form['name']
         
         description = request.form['description']
-        print('>>>>>',name, description)
+        # print('>>>>>',name, description)
         info = {'id' : None, 'name' : None, 'user' : None, 'key' : None, 'description' : None, 'list_tracks': []}
         
         
         info['name'] = name
         info['description'] = description
         
-        print(info)
+        # print(info)
         """save new list in json file"""
         set_dict_in_json(info)
         
@@ -74,14 +77,14 @@ def Search():
 
     
     data = get_dict_in_json('list_band.json')
-    print(data)
+    # print(data)
     return render_template('search2.html', albums=response, artist=get_name, band_list=data) # , band_list=data
 
 @app.route('/view_list', methods=['GET'])
 def View_List():
     if request.method == 'GET':
         data = get_dict_in_json('list_band.json')
-        print(data)
+        # print(data)
         return render_template('view_list.html',lists_band = data)
 
 

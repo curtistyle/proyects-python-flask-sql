@@ -92,10 +92,7 @@ def search_albums_for_artist(title_artist):
                 track_title = track['name']
                 track_time = ms_to_minute(track['duration_ms'])
                 
-                if index == 0:
-                    print(">>>", track)
-                    print()
-                index += 1
+                
                 
                 track_list.append({'title':track_title, 'time': track_time})
                    
