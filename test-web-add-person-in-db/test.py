@@ -156,11 +156,46 @@
 
 # ------------------- ------------------------- -------------------- -------------------
 
-nombre = "s"
-apellido = "s"
-numero = 1
+# nombre = "s"
+# apellido = "s"
+# numero = 1
 
-def bolean():
-    return ((len(nombre) > 0) and (len(apellido) > 0) and (numero > 0))
+# def bolean():
+#     return ((len(nombre) > 0) and (len(apellido) > 0) and (numero > 0))
 
-print(bolean())
+# print(bolean())
+
+# dic = {
+#     "user" : None,
+#     "lists" : [
+#         {
+#             "id" : None,
+#             "name" : "Lista 1",
+#             "key" : None,
+#             "description" : None,
+#             "tracks" : [
+#                 {
+#                     "artist" : "The Offspring",
+#                     "album" : "Smash",
+#                     "Track" : "Self Eteem"
+#                 }
+#             ]
+#         }
+#     ]
+# }
+
+# index = ["list", "tracks", "Track"]
+
+# # def search(element):
+# #     if type(element) ==  type({}):
+        
+    
+    
+# i=0
+# for key, value in dic.items():
+#     print(key, " - ", value)
+#     if (key == index[i] and(len(index)-1) ):
+        
+file = open("main.json", "a")
+
+

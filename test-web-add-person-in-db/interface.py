@@ -2,30 +2,10 @@ from spotipy import Spotify, SpotifyClientCredentials
 from band import Album, Artist, Track
 import json 
 
-class File():
-    def __init__(self, name) -> None:
-        self.__path = self.name + ".json"
-        self.name = name
-        self.__file 
+class Interface():
+    @staticmethod
+    def get_pos():...
     
-    @property
-    def path(self):
-        return self.__path
-    
-    @path.setter
-    def path(self, value):
-        self.__path = value;
-
-    def create(self):
-        self.__file = open(self.__path, "w")
-        self.__file.close()    
-    
-        
-    def add(self, name_list, **kwargs):
-        
-        
-    
-
     @staticmethod
     def generate_list(items : list, list_select):
         """Retorna una `lista` con los items formateados. Donde `item` contiene `artista`, `album`, `track`. `list_select` la lista seleccionada que hace referencia al item."""
@@ -34,6 +14,54 @@ class File():
             words = item.split('¯')
             list_items.append({'artist': words[0], 'album': words[1], 'track' : words[2], 'list_select' : list_select})
         return list_items  
+
+class File():
+    def __init__(self, name) -> None:
+        self.__path = self.name + ".json"
+        self.name = name
+        self.__file
+        self.__data
+    
+    @property
+    def path(self):
+        return self.__path
+    
+    @property
+    def file(self):
+        return self.__file
+    
+    @property
+    def data(self):
+        return self.__data
+    
+    @data.setter
+    def data(self, value):
+        self.__data = value
+    
+    @file.setter
+    def file(self, value):
+        self.__file = value
+    
+    @path.setter
+    def path(self, value):
+        self.__path = value;
+
+    def fread(self):
+        self.__file = open(self.__path, "r")
+        with self.__file as file:
+            self.__data = json.load(file)
+    
+    def fcreate(self):
+        try:
+            self.__file = open(self.__path, "x")
+        except FileExistsError:
+            print("El archivo ya existe.")
+        
+    def fwrite(self):
+        self.__file = open(self.__path, "w")
+        with self.__file as file:
+            json.dump(self.__data, file)
+
     
     
 
