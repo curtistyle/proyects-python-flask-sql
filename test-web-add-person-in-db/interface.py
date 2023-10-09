@@ -2,7 +2,7 @@ from spotipy import Spotify, SpotifyClientCredentials
 from band import Album, Artist, Track
 import json 
 
-class Interface():
+class Main():
     @staticmethod
     def get_pos():...
     

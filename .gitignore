@@ -31,3 +31,4 @@ python-flask-login-mysql/env
 python-flask-mysql-tasks-login/env
 test-web-add-person-in-db/env
 app-web-flask-login-priv-multiusers/env
+app-flask-mysql-users/env

@@ -1,0 +1,5 @@
+MYSQL_HOST = "localhost"
+MYSQL_USER = "root"
+MYSQL_PASSWORD= "admin"
+MYSQL_DB = "login"
+SECRET_KEY = "secret"
